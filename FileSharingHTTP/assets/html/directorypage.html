@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <style>
+            body{
+                background:rgb(255, 255, 180);
+            }h{
+                font-size:40px;
+            }.polaroid {
+                width: 97%;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                text-align: left;
+            }
+            
+            
+            
+            table tbody tr td a {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }.myTable {
+                display: table;
+                margin: 0 auto ;
+            }.myTable a{
+                display: table-row;
+                text-decoration: none;
+                color: black;
+            }.list_item:hover{
+                background:rgba(129, 224, 201, 0.288);
+            }.myTable a span {
+                display: table-cell;
+                font-size: 20px;
+                padding: 2px;
+                vertical-align: middle;
+            }
+        </style>
+    </head>
+
+    <body>
+
+
+
+        <h>&nbsp; {{location}}</h><br><br>
+
+        <table>
+            <tr>
+                <td><a style="font-size: 20px;text-decoration:none;" href="{{parent}}">Parent  Directory</a></td>
+                <td>&nbsp;&nbsp;&nbsp;</td>
+                <td><a style="font-size: 20px;text-decoration:none;" href="{{zip}}">Download as .zip</a></td>
+                <td>&nbsp;&nbsp;&nbsp;</td>
+                <td style="font-size: 20px;text-decoration:none;">Files On Current Level :  {{filesize}} </td>
+            </tr>
+        </table>
+
+        <br/>
+
+        <div class="myTable polaroid">
+
+            <a>
+                <span><hr></span>
+                <span><hr></span>
+                <span><hr></span>
+                <span><hr></span>
+                <span><hr></span>                
+            </a>
+        
+            <a>
+                <span></span>
+                <span style="font-size:30px;">Name</span>
+                <span></span>
+                <span style="font-size:30px;">Date Modified</span>
+                <span style="font-size:30px;">Size</span>                
+            </a>
+            <a>
+                <span><hr></span>
+                <span><hr></span>
+                <span><hr></span>
+                <span><hr></span>
+                <span><hr></span>                
+            </a>
+
+
+            {{#list_item}}
+
+                <a class="list_item" href="{{onclick}}">
+                    <span><img src="{{icon}}"></span>
+                    <span>{{name}}</span>
+                    <span></span>
+                    <span>{{date}}</span>
+                    <span> {{size}}</span>
+                </a>
+                <a>
+                    <span><hr></span>
+                    <span><hr></span>
+                    <span><hr></span>
+                    <span><hr></span>
+                    <span><hr></span>                
+                </a>
+            
+            {{/list_item}}
+                
+        </div>
+
+        {{^list_item}}
+            <h><br><br><hr>Empty Directory</h>
+        {{/list_item}}
+
+    </body>
+</html>
